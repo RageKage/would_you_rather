@@ -1,39 +1,65 @@
 <template>
-<div id="app">
-
-<h1>Would you rather...</h1>
-<would-you-rather 
-v-bind:question = "wryQuestion"
-v-bind:answer1="wryAnswerOne"
-v-bind:answer2 = "wryAnswerTwo"
-@answer-changed = "answerChanged"></would-you-rather>
-<p>{{UserSelectionMessage}}</p>
-</div>
+  <div id="app">
+    <h1>Would you rather...</h1>
+    <would-you-rather 
+      v-for="question in questions"
+      v-bind:key="question.id"
+      v-bind:question="question.Question"
+      v-bind:answer1="question.AnswerOne"
+      v-bind:answer2="question.AnswerTwo"
+      @answer-changed="userAnswer"
+    ></would-you-rather>
+    <p v-for="question in questions"
+      v-bind:key="question.id">{{question.UserSelectionMessage}}</p>
+  </div>
 </template>
 
 <script>
-import WouldYouRather from './components/WouldYouRather.vue'
+import WouldYouRather from "./components/WouldYouRather.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    WouldYouRather
+    WouldYouRather,
   },
   data() {
-    return{
-      wryQuestion :'Would you rather never eat cheese again or never drink anything sweet again?',
-      wryAnswerOne : 'No more cheese',
-      wryAnswerTwo: 'No more sweet drinks',
-      UserSelectionMessage: ''
-
-    }
+    return {
+      questions: [
+        {
+          id: 0,
+          Question:
+            "Would you rather never eat cheese again or never drink anything sweet again?",
+          AnswerOne: "No more cheese",
+          AnswerTwo: "No more sweet drinks",
+          UserSelectionMessage: "",
+        },
+        {
+          id: 1,
+          Question: "Would you rather have a tail that cant grab things or wings that cant fly?",
+          AnswerOne: "can't grab",
+          AnswerTwo: "can't fly",
+          UserSelectionMessage: "",
+        },
+        {
+          id: 2,
+          Question:
+            "Would you rather be incredibly luck with average intelligence or incredibly smart with average luck?",
+          AnswerOne: "lucky dumb",
+          AnswerTwo: "smart no luck",
+          UserSelectionMessage: "",
+        },
+      ],
+    };
   },
   methods: {
-    answerChanged(choice){
-       this.UserSelectionMessage  = `You chose ${choice}`
-    }
-  }
-}
+    userAnswer(choice) {
+      this.question = this.questions.forEach(function(a){
+        a.UserSelectionMessage = `${choice}`
+        // console.log(a.UserSelectionMessage)
+      })
+    },
+  },
+};
 </script>
 
 <style>
