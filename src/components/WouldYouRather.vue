@@ -9,7 +9,7 @@
       id="answer1"
       v-model="choice"
       v-bind:value="answer1"
-      @change="ChoiceMade"
+      @change="ChoiceMade(question)"
     />
     <label>{{ answer1 }}</label>
 
@@ -17,7 +17,7 @@
       type="radio"
       v-model="choice"
       v-bind:value="answer2"
-      @change="ChoiceMade"
+      @change="ChoiceMade(question)"
     />
     <label>{{ answer2 }}</label>
   </div>
@@ -38,8 +38,8 @@ export default {
     };
   },
   methods: {
-    ChoiceMade() {
-      this.$emit("answer-changed", this.choice);
+    ChoiceMade(question) {
+      this.$emit("answer-changed", this.choice, question)
     },
   },
 };

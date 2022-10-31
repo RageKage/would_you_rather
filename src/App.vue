@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Would you rather...</h1>
-    <would-you-rather 
+    <would-you-rather
       v-for="question in questions"
       v-bind:key="question.id"
       v-bind:question="question.Question"
@@ -35,7 +35,8 @@ export default {
         },
         {
           id: 1,
-          Question: "Would you rather have a tail that cant grab things or wings that cant fly?",
+          Question:
+            "Would you rather have a tail that cant grab things or wings that cant fly?",
           AnswerOne: "can't grab",
           AnswerTwo: "can't fly",
           UserSelectionMessage: "",
@@ -52,11 +53,29 @@ export default {
     };
   },
   methods: {
-    userAnswer(choice) {
-      this.question = this.questions.forEach(function(a){
-        a.UserSelectionMessage = `${choice}`
-        // console.log(a.UserSelectionMessage)
+    userAnswer(choice,question ) {
+
+      // console.log(`you checked a radio ${question}`)
+      // this.UserSelectionMessage = '';
+
+      // look back at the student sign in and see how it shows in vue that a student is present or not and how it moves from the rows to the app
+      // this.questions.forEach(function (a) {
+      //   a.UserSelectionMessage = choice
+      //   console.log(a.UserSelectionMessage)
+      //   this.UserSelectionMessage.push(a.UserSelectionMessage)
+      // });
+     
+      this.questions.forEach(function(a){
+        if (question == a.Question ) {
+          a.UserSelectionMessage = choice
+          this.UserSelectionMessage.push(a.UserSelectionMessage)
+          // console.log(`they match ${question}`)
+        }
+        // a.UserSelectionMessage = choice
+        // // console.log(a.UserSelectionMessage)
+        // this.UserSelectionMessage.push(a.UserSelectionMessage)
       })
+      //  console.log(this.UserSelectionMessage)
     },
   },
 };
