@@ -2,14 +2,15 @@
   <div class="wry">
     <h2>Would you rather...</h2>
 
-    <h3>...{{question }}</h3>
+    <h3>...{{ question }}</h3>
 
     <input
       type="radio"
       id="answer1"
       v-model="choice"
       v-bind:value="answer1"
-      @change="ChoiceMade(question)"
+      v-bind:a="questionID"
+      @change="ChoiceMade"
     />
     <label>{{ answer1 }}</label>
 
@@ -17,7 +18,7 @@
       type="radio"
       v-model="choice"
       v-bind:value="answer2"
-      @change="ChoiceMade(question)"
+      @change="ChoiceMade"
     />
     <label>{{ answer2 }}</label>
   </div>
@@ -28,6 +29,7 @@ export default {
   name: "WouldYouRather",
   emits: ["answer-changed"],
   props: {
+    questionID: Number,
     question: String,
     answer1: String,
     answer2: String,
@@ -38,14 +40,16 @@ export default {
     };
   },
   methods: {
-    ChoiceMade(question) {
-      this.$emit("answer-changed", this.choice, question)
+    ChoiceMade() {
+      // console.log(this.questionID)
+      this.$emit("answer-changed", this.choice,this.questionID);
+
     },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!--Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

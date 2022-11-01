@@ -4,6 +4,7 @@
     <would-you-rather
       v-for="question in questions"
       v-bind:key="question.id"
+      v-bind:questionID="question.id"
       v-bind:question="question.Question"
       v-bind:answer1="question.AnswerOne"
       v-bind:answer2="question.AnswerTwo"
@@ -53,31 +54,22 @@ export default {
     };
   },
   methods: {
-    userAnswer(choice,question ) {
+    userAnswer(choice,questionID) {
+      console.log(`this choice is ${choice}`)
+      console.log(`this id is ${questionID}`)
 
-      // console.log(`you checked a radio ${question}`)
-      // this.UserSelectionMessage = '';
-
-      // look back at the student sign in and see how it shows in vue that a student is present or not and how it moves from the rows to the app
-      // this.questions.forEach(function (a) {
-      //   a.UserSelectionMessage = choice
-      //   console.log(a.UserSelectionMessage)
-      //   this.UserSelectionMessage.push(a.UserSelectionMessage)
-      // });
-     
       this.questions.forEach(function(a){
-        if (question == a.Question ) {
+        if (questionID === a.id ) {
+          console.log('they match')
           a.UserSelectionMessage = choice
-          this.UserSelectionMessage.push(a.UserSelectionMessage)
-          // console.log(`they match ${question}`)
         }
-        // a.UserSelectionMessage = choice
-        // // console.log(a.UserSelectionMessage)
-        // this.UserSelectionMessage.push(a.UserSelectionMessage)
+
       })
-      //  console.log(this.UserSelectionMessage)
     },
   },
+  sendID(){
+
+  }
 };
 </script>
 
