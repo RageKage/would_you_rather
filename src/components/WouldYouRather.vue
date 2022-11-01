@@ -7,9 +7,8 @@
     <input
       type="radio"
       id="answer1"
-      v-model="choice"
+      v-model="choice" 
       v-bind:value="answer1"
-      v-bind:a="questionID"
       @change="ChoiceMade"
     />
     <label>{{ answer1 }}</label>
@@ -18,7 +17,7 @@
       type="radio"
       v-model="choice"
       v-bind:value="answer2"
-      @change="ChoiceMade"
+      @change="ChoiceMade" 
     />
     <label>{{ answer2 }}</label>
   </div>
@@ -42,8 +41,8 @@ export default {
   methods: {
     ChoiceMade() {
       // console.log(this.questionID)
-      this.$emit("answer-changed", this.choice,this.questionID);
-
+      // emit the choice made to the app.vue
+      this.$emit("answer-changed", this.choice, this.questionID);
     },
   },
 };
@@ -59,6 +58,9 @@ h3 {
   color: black;
   border: 1px solid green;
   border-radius: 5px;
-  background: green;
+  /* background: green; */
+  margin: 5px;
+  padding: 5px;
+  text-align: left;
 }
 </style>
