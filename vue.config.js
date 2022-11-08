@@ -7,3 +7,5 @@ module.exports = {
     outputDir: "docs"
 }
 
+
+// error message on the website
