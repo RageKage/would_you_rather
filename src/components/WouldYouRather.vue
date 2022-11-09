@@ -56,11 +56,12 @@ h3 {
 
 .wry {
   color: black;
-  border: 1px solid green;
   border-radius: 5px;
-  /* background: green; */
+  text-align: center;
+  background: linear-gradient(#e66465, #9198e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   margin: 5px;
   padding: 5px;
-  text-align: left;
 }
 </style>
