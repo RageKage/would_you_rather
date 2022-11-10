@@ -7,7 +7,7 @@
     <input
       type="radio"
       id="answer1"
-      v-model="choice" 
+      v-model="choice"
       v-bind:value="answer1"
       @change="ChoiceMade"
     />
@@ -17,7 +17,7 @@
       type="radio"
       v-model="choice"
       v-bind:value="answer2"
-      @change="ChoiceMade" 
+      @change="ChoiceMade"
     />
     <label>{{ answer2 }}</label>
   </div>
@@ -53,14 +53,13 @@ export default {
 h3 {
   margin: 40px 0 0;
 }
-
 .wry {
   color: black;
   border-radius: 5px;
   text-align: center;
-  background: linear-gradient(#e66465, #9198e5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: linear-gradient(180deg, #e66465, #9198e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 5px;
   padding: 5px;
 }

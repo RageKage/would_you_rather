@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="why">
     <h1>Would you rather...</h1>
     <would-you-rather
       v-for="question in questions"
@@ -16,6 +17,7 @@
       <li>{{ question.UserSelectionMessage }}</li> 
     </ul> <!--Make a list of all the users answers choices-->
   </div>
+</div>
 </template>
 
 <script>
@@ -74,6 +76,12 @@ export default {
 </script>
 
 <style>
+
+.why {
+border: 3px solid #E21143;
+border-radius: 50px;
+
+}
 #app {
   
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -82,7 +90,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  background-image: linear-gradient(60deg, #E21143, #FFB03A);
+  background-image: linear-gradient(100deg, #E21143, #FFB03A);
   -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
